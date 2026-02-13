@@ -9,7 +9,9 @@ let messageEl = document.getElementById("message-el")
 let cardsEl = document.getElementById("cards-el")
 let sumEl = document.getElementById("sum-el")
 
-function startGame(){
+//This is where the game begins. When you click the start b8tton, the startGame() function fires up. This changes the variables of the pl
+
+function startGame(){ 
     isAlive = true
     hasBlackJack = false
     isDealerAlive = true

@@ -1,4 +1,4 @@
-let cardsD = []
+let cardsD = [] 
 let sumD = 0
 let cardsElD = document.getElementById("cards-eld")
 let sumElD = document.getElementById("sum-eld")
