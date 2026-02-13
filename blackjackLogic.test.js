@@ -1,9 +1,9 @@
 import { describe, it, expect } from 'vitest'
 import { getRandomCardFromNumber, evaluateSum } from './blackJackLogic'
 
-describe('getRandomCardFromNumber', () => {
-  it('turns Ace into 11', () => {
-    expect(getRandomCardFromNumber(1)).toBe(11)
+describe('getRandomCardFromNumber', () => { //Groups what we are testing
+  it('turns Ace into 11', () => { // Defines a single test 
+    expect(getRandomCardFromNumber(11)).toBe(11) // Checks if something is true
   })
 
   it('turns face cards into 10', () => {

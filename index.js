@@ -9,14 +9,15 @@ let messageEl = document.getElementById("message-el")
 let cardsEl = document.getElementById("cards-el")
 let sumEl = document.getElementById("sum-el")
 
-//This is where the game begins. When you click the start b8tton, the startGame() function fires up. This changes the variables of the pl
+//This is where the game begins. When you click the start b8tton, the startGame() function fires up. This changes the variables of the player to alive as well as the dealer. 
+
 
 function startGame(){ 
     isAlive = true
     hasBlackJack = false
     isDealerAlive = true
     hasDealerBlackJack = false
-    let firstCard = getRandomCard()
+    let firstCard = getRandomCard() //The first two cards get generated in the getRandomCard() function further down.
     let secondCard = getRandomCard()
     cards = [firstCard, secondCard]
     sum = firstCard + secondCard
@@ -24,17 +25,17 @@ function startGame(){
     let secondCardD = getRandomCard()
     cardsD = [firstCardD, secondCardD]
     sumD = firstCardD + secondCardD
-    renderGame()
+    renderGame() //When startGame() gets initialized, both renderGame() functions for both the user an dealer function.
     renderGameD()
 }
 
-
+//Denne funktion styrer,  
 function getRandomCard(){
-    let randomNumber = Math.floor(Math.random() * 13) + 1
+    let randomNumber = Math.floor(Math.random() * 13) + 1 
     if(randomNumber === 1){
-        return 11
-    } else if(randomNumber === 11){
         return 1
+    } else if(randomNumber === 11){
+        return 11
     }else if(randomNumber > 10){
         return 10
     } else {
