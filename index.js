@@ -29,7 +29,9 @@ function startGame(){
     renderGameD()
 }
 
-//Denne funktion styrer,  
+//This function determines which card that the user will receive. The built in Math.random function spits out a value between 0 and 1.   
+// Math.floor rounds the decimal to the closest roundest number. Multiplying it with 13 bring the value upwards toward 12. 
+// Adding +1 to the line of code raises the minimum value. 
 function getRandomCard(){
     let randomNumber = Math.floor(Math.random() * 13) + 1 
     if(randomNumber === 1){
@@ -43,6 +45,7 @@ function getRandomCard(){
     }
 }
 
+//This function is where the Dom manipulation happens, where the changes get reflected in the browser. 
 function renderGame(){
     cardsEl.textContent = `Your cards: `
 
@@ -64,12 +67,12 @@ function renderGame(){
 }
 
 
-
+//This ends the game. 
 function stand(){
     isAlive = false
 }
 
-
+//This function determines whether or not 
 function newCard(){
     if(isAlive === true && hasBlackJack === false){
         let card = getRandomCard()
