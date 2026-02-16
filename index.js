@@ -25,6 +25,7 @@ function startGame(){
     let secondCardD = getRandomCard()
     cardsD = [firstCardD, secondCardD]
     sumD = firstCardD + secondCardD
+    determineAce()
     renderGame() //When startGame() gets initialized, both renderGame() functions for both the user an dealer function.
     renderGameD()
 }
@@ -44,7 +45,11 @@ function getRandomCard(){
 }
 
 function determineAce(){
-
+    while (sum > 21 && cards.includes(11)){
+       let aceIndex = cards.indexOf(11)
+       cards[aceIndex] = 1
+        sum -= 10
+    }
 
 }
 
