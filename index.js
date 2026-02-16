@@ -58,11 +58,9 @@ function determineAce(){
 //This function is where the Dom manipulation happens, where the changes get reflected in the browser. 
 function renderGame(){
     cardsEl.textContent = `Your cards: `
-
     for (let i = 0; i < cards.length; i++){
         cardsEl.textContent += cards[i] + " "
     }
-
     sumEl.textContent = `Your sum: ${sum}`
 
     if (hasStood === false) {
