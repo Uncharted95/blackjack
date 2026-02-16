@@ -13,6 +13,7 @@ let sumEl = document.getElementById("sum-el")
 
 
 function startGame(){ 
+    let hasStood = false
     isAlive = true
     hasBlackJack = false
     isDealerAlive = true
@@ -62,6 +63,7 @@ function renderGame(){
     }
 
     sumEl.textContent = `Your sum: ${sum}`
+    hasStood === false
     if(sum <= 20){
         message = "Do you want to draw a new card?"
     } else if(sum === 21){
@@ -73,6 +75,8 @@ function renderGame(){
     }
     messageEl.textContent = `Dealer: ${message} `
 
+
+    hasStood === true
     if (sum > 21 && sumD <= 21){
         message = "Seems like you busted"
     } else if(sumD > 21 && sum <= 21){
@@ -95,6 +99,8 @@ function renderGame(){
 //This ends the game. 
 function stand(){
     isAlive = false
+    hasStood = true
+    renderGame()
 }
 
 //This function adds a new card to your hand. 
