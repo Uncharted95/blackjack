@@ -35,14 +35,17 @@ function startGame(){
 function getRandomCard(){
     let randomNumber = Math.floor(Math.random() * 13) + 1 
     if(randomNumber === 1){
-        return 1
-    } else if(randomNumber === 11){
         return 11
     }else if(randomNumber > 10){
         return 10
     } else {
         return randomNumber
     }
+}
+
+function determineAce(){
+
+
 }
 
 //This function is where the Dom manipulation happens, where the changes get reflected in the browser. 
