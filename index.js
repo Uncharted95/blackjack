@@ -72,6 +72,23 @@ function renderGame(){
         isAlive = false
     }
     messageEl.textContent = `Dealer: ${message} `
+
+    if (sum > 21 && sumD <= 21){
+        message = "Seems like you busted"
+    } else if(sumD > 21 && sum <= 21){
+        message = "Seems like I busted"
+    } else if (sum > 21 && sumD > 21){
+        message = "We both busted"
+    }
+    else if(sum > sumD) {
+        message = "You won!"
+    } else if(sumD > sum){
+        message = "I won!"
+    } else{
+        message = "Seems like it's a tie!"
+    }
+    messageEl.textContent = `Dealer: ${message} `
+
 }
 
 
