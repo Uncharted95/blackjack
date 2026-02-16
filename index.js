@@ -4,6 +4,7 @@ let hasBlackJack = false
 let isAlive = false
 let isDealerAlive = false
 let hasDealerBlackJack = false
+let hasStood = false
 let message = ""
 let messageEl = document.getElementById("message-el")
 let cardsEl = document.getElementById("cards-el")
@@ -13,7 +14,7 @@ let sumEl = document.getElementById("sum-el")
 
 
 function startGame(){ 
-    let hasStood = false
+    hasStood = false
     isAlive = true
     hasBlackJack = false
     isDealerAlive = true
@@ -63,37 +64,40 @@ function renderGame(){
     }
 
     sumEl.textContent = `Your sum: ${sum}`
-    hasStood === false
-    if(sum <= 20){
-        message = "Do you want to draw a new card?"
-    } else if(sum === 21){
-        message = "You got blackjack!"
-        hasBlackJack = true
+
+    if (hasStood === false) {
+
+        if(sum <= 20){
+            message = "Do you want to draw a new card?"
+        } else if(sum === 21){
+            message = "You got blackjack!"
+            hasBlackJack = true
+        } else {
+            message = "You're out of the game!"
+            isAlive = false
+        }
+
     } else {
-        message = "You're out of the game!"
-        isAlive = false
+
+        if (sum > 21 && sumD <= 21){
+            message = "Seems like you busted"
+        } else if(sumD > 21 && sum <= 21){
+            message = "Seems like I busted"
+        } else if (sum > 21 && sumD > 21){
+            message = "We both busted"
+        } else if(sum > sumD) {
+            message = "You won!"
+        } else if(sumD > sum){
+            message = "I won!"
+        } else{
+            message = "Seems like it's a tie!"
+        }
+
     }
+
     messageEl.textContent = `Dealer: ${message} `
-
-
-    hasStood === true
-    if (sum > 21 && sumD <= 21){
-        message = "Seems like you busted"
-    } else if(sumD > 21 && sum <= 21){
-        message = "Seems like I busted"
-    } else if (sum > 21 && sumD > 21){
-        message = "We both busted"
-    }
-    else if(sum > sumD) {
-        message = "You won!"
-    } else if(sumD > sum){
-        message = "I won!"
-    } else{
-        message = "Seems like it's a tie!"
-    }
-    messageEl.textContent = `Dealer: ${message} `
-
 }
+
 
 
 //This ends the game. 
