@@ -72,7 +72,7 @@ function stand(){
     isAlive = false
 }
 
-//This function determines whether or not 
+//This function adds a new card to your hand. 
 function newCard(){
     if(isAlive === true && hasBlackJack === false){
         let card = getRandomCard()
