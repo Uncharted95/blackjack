@@ -1,11 +1,10 @@
 
-**How to run the program: **
+**How to run the program:**
 Through a visual interface with interactive elements, the user can play the blackjack game by pressing the buttons that is located under the text that display the cards and the sum of both the user and the dealer.  
 
-**
-Project Title**
+**Project Title**
 A simple BlackJack game
-**
+
 Simple overview of use/purpose**
 An attempt on creating a simple Blackjack game, where the user and the dealer both draw cards until they either get close or get a 21(BlackJack). The dealer will always have a sum value of 17 as minimum. The user has the option to hit (draw a new card) or stand (the game ends).
 
