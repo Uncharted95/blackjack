@@ -104,6 +104,7 @@ function renderGame(){
 function stand(){
     isAlive = false
     hasStood = true
+    renderGameD()
     renderGame()
 }
 

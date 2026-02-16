@@ -1,40 +1,49 @@
-let cardsD = [] 
+let cardsD = []
 let sumD = 0
 let cardsElD = document.getElementById("cards-eld")
 let sumElD = document.getElementById("sum-eld")
 
+function determineAceD(){
+    while (sumD > 21 && cardsD.includes(11)) {
+        let aceIndex = cardsD.indexOf(11)
+        cardsD[aceIndex] = 1
+        sumD -= 10
+    }
+}
+
 function renderGameD(){
     cardsElD.textContent = `Dealer's cards: `
+
+    if (hasStood === false) {
+        cardsElD.textContent += cardsD[0] + " ?"
+        sumElD.textContent = `Dealer's sum: ?`
+        return
+    }
+
+    while (isDealerAlive === true && hasDealerBlackJack === false && sumD < 17) {
+        let cardD = getRandomCard()
+        cardsD.push(cardD)
+        sumD += cardD
+        determineAceD()
+    }
+
+
+    hasDealerBlackJack = (sumD === 21)
+    isDealerAlive = (sumD <= 21)
 
     for (let i = 0; i < cardsD.length; i++){
         cardsElD.textContent += cardsD[i] + " "
     }
-
-    if(sumD <= 16){
-        newCardD()
-    } else if(sumD === 21){
-        hasDealerBlackJack = true
-        isAlive = false
-        message = "I got Blackjack."
-    } else if(sumD > 21){
-        isDealerAlive = false
-        isAlive = false
-        message = "I lost!"
-    }
-
     sumElD.textContent = `Dealer's sum: ${sumD}`
-    messageEl.textContent = `Dealer: ${message} ` 
-
 }
 
 
 function newCardD(){
-    if(isDealerAlive === true && hasDealerBlackJack === false){
+    if (hasStood === true && isDealerAlive === true && hasDealerBlackJack === false && sumD < 17){
         let cardD = getRandomCard()
-        sumD += cardD
         cardsD.push(cardD)
+        sumD += cardD
+        determineAceD()
         renderGameD()
     }
-
-
 }
